@@ -1,0 +1,7 @@
+db = us-dev-sql-01.Chinook_1_0 
+target table = album2
+query = select * from album
+
+checkFile (output1.sql) 
+ 1 symbol ' should be doubled
+ 2 encoding should be utf

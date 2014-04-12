@@ -1,0 +1,16 @@
+<tools>
+    <tool id="db-data-exporter" title="Database::Data Export" projectTypes="inventory">
+        <description>Exports data as sql that can be imported into another table/database</description>
+
+        <parameters>
+            <parameter name="p_database"     title="Source Database" type="string" required="true" 
+                       suggestion="project_databases" width="300" />
+
+            <parameter name="p_target_table" title="Target Table"    type="string" required="true" />
+            <parameter name="p_query"        title="Query"           type="text"   required="true" 
+                       width="200" height="5" />
+        </parameters>
+
+        <output  script="data_exporter.groovy" type="html" />
+    </tool>
+</tools>
