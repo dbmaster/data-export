@@ -5,7 +5,7 @@
 
     <groupId>io.dbmaster.tools</groupId>
 
-    <artifactId>db-data-exporter</artifactId>
+    <artifactId>data-export</artifactId>
 
     <name>Data Exporter</name>
     <description>Exports data to cvs or sql files</description>
