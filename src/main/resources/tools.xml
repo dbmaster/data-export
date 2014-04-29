@@ -1,5 +1,5 @@
 <tools>
-    <tool id="data-export" title="Data Export" projectTypes="inventory">
+    <tool id="db-export" title="DB Export" projectTypes="inventory">
         <description>Exports data as sql that can be imported into another table/database</description>
 
         <parameters>
@@ -11,6 +11,6 @@
                        width="200" height="5" />
         </parameters>
 
-        <output  script="data_export.groovy" type="html" />
+        <output  script="db_export.groovy" type="html" />
     </tool>
 </tools>

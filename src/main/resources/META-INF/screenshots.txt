@@ -1,0 +1,1 @@
+db-export-1.png=A simple example of export from one table into another

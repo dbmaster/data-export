@@ -5,12 +5,12 @@
 
     <groupId>io.dbmaster.tools</groupId>
 
-    <artifactId>data-export</artifactId>
+    <artifactId>db-export</artifactId>
 
-    <name>Data Exporter</name>
-    <description>Exports data to cvs or sql files</description>
+    <name>DB Export</name>
+    <description>Generates sql inserts based on a sql query</description>
 
-    <version>1.0.5</version>
+    <version>1.0.7</version>
     <packaging>bundle</packaging>
 
     <parent>
@@ -37,6 +37,8 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
+                        <Tags>inventory,sqlserver,export</Tags>
+                        <Author>slava.christin</Author>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Import-Package>io.dbmaster.api;version="1.7.0"</Import-Package>
                     </instructions>
