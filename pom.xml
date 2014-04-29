@@ -5,12 +5,12 @@
 
     <groupId>io.dbmaster.tools</groupId>
 
-    <artifactId>db-export</artifactId>
+    <artifactId>data-export</artifactId>
 
     <name>DB Export</name>
     <description>Generates sql inserts based on a sql query</description>
 
-    <version>1.0.7</version>
+    <version>1.0.8</version>
     <packaging>bundle</packaging>
 
     <parent>
