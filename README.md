@@ -1,4 +1,4 @@
 data-export
 ===========
 
-Exports data to cvs or sql files
+Generates sql inserts based on a sql query
