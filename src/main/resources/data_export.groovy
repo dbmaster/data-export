@@ -1,7 +1,3 @@
-/*
- *  File Version:  $Id: data_export.groovy 145 2013-05-22 18:10:44Z schristin $
- */
-
 import groovy.sql.Sql
 import com.branegy.dbmaster.database.api.ModelService;
 import com.branegy.dbmaster.model.*;
