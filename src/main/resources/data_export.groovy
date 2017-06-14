@@ -35,47 +35,47 @@ switch (dialect.getDialectName().toLowerCase()) {
 */
 
 def quote = {
-	if (it == null) return it
+    if (it == null) return it
 
-	if (it.class == java.lang.String) return qSymbol + it.replaceAll('\'','\'\'')  + qSymbol;
-	if (it.class == java.util.Date)       return qSymbol + it.replaceAll('"','\\\\"') + qSymbol;
-	if (it.class == java.sql.Date)        return qSymbol + it.replaceAll('"','\\\\"') + qSymbol;
+    if (it.class == java.lang.String) return qSymbol + it.replaceAll('\'','\'\'')  + qSymbol;
+    if (it.class == java.util.Date)       return qSymbol + it.replaceAll('"','\\\\"') + qSymbol;
+    if (it.class == java.sql.Date)        return qSymbol + it.replaceAll('"','\\\\"') + qSymbol;
 /*
    FOR ORACLE
    if (it.class == oracle.sql.TIMESTAMP) return 'TIMESTAMP ' + qSymbol + it + qSymbol;
    if (it.class == java.sql.Timestamp)   return 'TIMESTAMP ' + qSymbol + it + qSymbol;
 */
-	if (it.class == java.math.BigDecimal) return it;
-	if (it.class == java.sql.Timestamp)   return qSymbol + it + qSymbol;
-	if (it.class == java.lang.Long)       return it;
-	if (it.class == java.lang.Integer)    return it;
-	if (it.class == java.lang.Boolean)    {
-		return it ? '1' : '0';		
-	}
-	
-	if (it instanceof  java.sql.Blob) {
-		def HEXES = "0123456789ABCDEF";
-		def stream = it.getBinaryStream()
-		byte[] buf = new byte[1024]
-		int n = 0
-		final StringBuilder hex = new StringBuilder(20000)
-		hex.append('0x')
-		while ((n=stream.read(buf))>=0) {
-			for (int i=0;i<n;i++) {
-				 hex.append(HEXES.charAt((buf[i] & 0xF0) >> 4)).append(HEXES.charAt((buf[i] & 0x0F)));
-			}
-		}	       
-        return hex.toString()		
-	}
+    if (it.class == java.math.BigDecimal) return it;
+    if (it.class == java.sql.Timestamp)   return qSymbol + it + qSymbol;
+    if (it.class == java.lang.Long)       return it;
+    if (it.class == java.lang.Integer)    return it;
+    if (it.class == java.lang.Boolean)    {
+        return it ? '1' : '0';        
+    }
+    
+    if (it instanceof  java.sql.Blob) {
+        def HEXES = "0123456789ABCDEF";
+        def stream = it.getBinaryStream()
+        byte[] buf = new byte[1024]
+        int n = 0
+        final StringBuilder hex = new StringBuilder(20000)
+        hex.append('0x')
+        while ((n=stream.read(buf))>=0) {
+            for (int i=0;i<n;i++) {
+                 hex.append(HEXES.charAt((buf[i] & 0xF0) >> 4)).append(HEXES.charAt((buf[i] & 0x0F)));
+            }
+        }           
+        return hex.toString()        
+    }
 
 
-	if (it instanceof java.sql.Clob) {
+    if (it instanceof java.sql.Clob) {
         Reader reader = it.getCharacterStream()
         String result = IOUtils.toString(reader)
         return qSymbol + result.replaceAll(qSymbol,'\\\\'+qSymbol) + qSymbol
-	}
-	logger.error("Unmapped Variable type "+it.class)
-	return it
+    }
+    logger.error("Unmapped Variable type "+it.class)
+    return it
 }
 
 
