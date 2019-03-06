@@ -10,16 +10,13 @@ def source_database  = p_database.split("\\.")[1]
 
 connectionSrv = dbm.getService(ConnectionService.class);
 connectionInfo = connectionSrv.findByName(source_server)
-connector = ConnectionProvider.getConnector(connectionInfo)
+connection = ConnectionProvider.get().getJdbcConnection(connectionInfo,source_database)
 
-connection = connector.getJdbcConnection(source_database)
 dbm.closeResourceOnExit(connection)
 
 def sql = new Sql(connection)
 
 logger.info("Query = ${p_query}")
-
-def dialect = connector.connect()
 
 def qSymbol = '\''
 
